@@ -27,4 +27,21 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+	$.get("https://cse170lab1shiweizhou.herokuapp.com/project/"+idNumber, callBackFn);
 }
+function callBackFn(result){
+	console.log(result.image);
+	console.log("#"+result.id+" "+".details");
+	$("#project"+result.id+" "+".details").append("<img class=detailsImage src="+result.image+" />");
+	$("#project"+result.id+" "+".details").append("<h5>"+result.title+"</h5>");
+	$("#project"+result.id+" "+".details").append(result.summary);
+}
+// function addProject(result) {
+//   var projectHTML = '<a href="#" class="thumbnail">' +
+//     '<img src="' + result['image'] + '" class="img">' +
+//     '<p>' + result['title'] + '</p>' +
+//     '<p><small>' + result['date'] +
+//     '</small></p></a>'; 
+// }
+// $.get("http://URL", callBackFn)
+// $.post("http://URL", {"json":"json"}, callBackFn) 

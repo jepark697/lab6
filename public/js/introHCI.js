@@ -27,7 +27,7 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
-	$.get("https://cse170lab1shiweizhou.herokuapp.com/project/"+idNumber, callBackFn);
+	$.get("http://localhost:3000/project/"+idNumber, callBackFn);
 }
 function callBackFn(result){
 	console.log(result.image);
